@@ -40,6 +40,9 @@ public class Brad08 extends HttpServlet {
 		
 		String method =  request.getMethod();
 		System.out.println(method);
+		if (method.equals("POST")) {
+			
+		}
 		
 	}
 
