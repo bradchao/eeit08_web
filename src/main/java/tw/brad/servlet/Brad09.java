@@ -29,7 +29,12 @@ public class Brad09 extends HttpServlet {
 			System.out.println(len);
 			System.out.println(urip + "_" + fileName);
 			
-			part.write(urip + "_" + fileName);
+			part.write(fileName);
+			
+			//byte[] data = part.getInputStream().readAllBytes();
+			
+			
+			
 		}catch(Exception e) {
 			System.out.println(e);
 			response.setContentType("text/html; charset=utf-8");
