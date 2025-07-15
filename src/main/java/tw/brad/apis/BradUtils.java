@@ -14,4 +14,14 @@ public class BradUtils {
 		
 		return new String(data);
 	}
+	public static String loadView(String view) throws Exception {
+		String source = String.format(
+			"C:\\Users\\User\\eclipse-workspace\\BradWeb\\src\\main\\webapp\\views\\%s.html", view) ;
+		File html = new File(source);
+		BufferedInputStream bin = new BufferedInputStream(new FileInputStream(html));
+		byte[] data = bin.readAllBytes();
+		bin.close();
+		
+		return new String(data);
+	}
 }
