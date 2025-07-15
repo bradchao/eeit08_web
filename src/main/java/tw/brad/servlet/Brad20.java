@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
-import org.apache.tomcat.jakartaee.commons.lang3.text.StrBuilder;
 
 @WebServlet("/Brad20")
 public class Brad20 extends HttpServlet {

@@ -13,7 +13,12 @@ window.onload = function(){
 	start.addEventListener("click",function(){
 		connect("ws://10.0.101.65:8080/BradWeb/myserver");
 	});
-	send.addEventListener("click", function(){});
+	send.addEventListener("click", function(){
+		let message = {
+			message: mesg.value
+		};
+		webSocket.send(JSON.stringify(message));
+	});
 	
 	function connect(url){
 		webSocket = new WebSocket(url);
@@ -24,7 +29,10 @@ window.onload = function(){
 			chatDiv.style.display = "block";
 		};
 		
-		webSocket.onmessage = function(){};
+		webSocket.onmessage = function(event){
+			let mesgObj = JSON.parse(event.data);
+			log.innerHTML += mesgObj.message + "<br />";
+		};
 		webSocket.onclose = function(){
 			console.log("onclose");
 		};

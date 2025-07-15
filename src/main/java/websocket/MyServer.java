@@ -1,5 +1,6 @@
 package websocket;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -35,7 +36,15 @@ public class MyServer {
 	
 	@OnMessage
 	public void onMessage(String mesg, Session session) {
-		System.out.println("OnMessage");
+		System.out.println("OnMessage:" + mesg);
+		for(Session userSession : sessions) {
+			try {
+				userSession.getBasicRemote().sendText(mesg);
+			} catch (IOException e) {
+				System.err.println(e);
+			}
+		}
+		
 	}
 	
 	@OnClose
