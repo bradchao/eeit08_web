@@ -11,7 +11,7 @@ import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 import jakarta.websocket.server.ServerEndpoint;
 
-@ServerEndpoint("/myserver")
+//@ServerEndpoint("/myserver")
 public class MyServer {
 	private static HashSet<Session> sessions;
 	private static HashMap<String, Session> users;
