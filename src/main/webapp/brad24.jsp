@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String mesg = "";
+	String errType = request.getParameter("errType");
+	if (errType != null){
+		switch(errType){
+			case "1": mesg = "新增失敗"; break;
+			case "2": mesg = "帳號重複"; break;
+		}
+	}
+%>    
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,7 +23,7 @@
 				return true;
 			}
 		</script>
-
+		<%= mesg %>
 		<form action="Register" onsubmit="return checkForm();" method="post">
 			Account: <input name="account" /><br />
 			Password: <input type="password" name="passwd" /><br />
