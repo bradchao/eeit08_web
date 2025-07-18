@@ -27,6 +27,19 @@
 					}					
 				});
 			}
+			function test4(){
+				let url = 'brad52.jsp';
+				$.ajax({
+					url: url,
+					method: 'post',
+					data: {
+						"max":$('#max').val()
+					},
+					success: function(data){
+						$('#id1').html(data);
+					}
+				});
+			}
 		</script>
 	</head>
 	<body>
@@ -35,5 +48,6 @@
 		<input type="button" onclick="test1()" value="Test1" />
 		<input type="button" onclick="test2()" value="Test2" />
 		<input type="button" onclick="test3()" value="Test3" />
+		<input type="button" onclick="test4()" value="Test4" />
 	</body>
 </html>
