@@ -79,7 +79,7 @@ public class BradUtils {
 			root.put("customer", String.format("%s (%s)", 
 					rows[0].getOrDefault("ContactName", ""), 
 					rows[0].getOrDefault("CompanyName", "")));
-			root.put("employee", String.format("%s %s)", 
+			root.put("employee", String.format("%s %s", 
 					rows[0].getOrDefault("FirstName", ""), 
 					rows[0].getOrDefault("LastName", "")));
 			

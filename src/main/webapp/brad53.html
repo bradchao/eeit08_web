@@ -3,16 +3,49 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			function search(){
+				$.ajax({
+					url: 'brad54.jsp',
+					method: 'get',
+					data: {
+						"orderId": $('#orderId').val()
+					},
+					success: function(order){
+						//console.log(order);
+						$('#employee').html(order.employee);
+						$('#customer').html(order.customer);
+						
+						$('#table').empty();
+						$(order.details).each(
+							function(i,row){
+								$('#table').append(
+									'<tr>' +
+										'<td>' + (i+1) +'</td>' +
+										'<td>' + row.pid +'</td>' +
+										'<td>' + row.pname +'</td>' +
+										'<td>' + row.price +'</td>' +
+										'<td>' + row.qty +'</td>' +
+									'</tr>'
+								);								
+							}
+						);
+						
+					}
+				});
+			}
+		</script>
 	</head>
 	<body>
 		<h1>Brad Big Company</h1>
 		<hr />
 		Order ID: <input id="orderId" />
-		<input type="button" value="Search" />
+		<input type="button" onclick="search()" value="Search" />
 		<hr />
 		Employee: <span id="employee"></span><br />
 		Customer: <span id="customer"></span><br />
 		<hr />
-		<table border="1" width="100%"></table>	
+		<table border="1" width="100%" id="table"></table>	
 	</body>
 </html>
