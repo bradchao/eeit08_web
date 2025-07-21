@@ -1,4 +1,4 @@
-<%@page import="java.util.SortedMap"%>
+<%@page import="java.util.*"%>
 <%@page import="jakarta.servlet.jsp.jstl.sql.Result"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="tw.brad.apis.*"%>
@@ -25,6 +25,14 @@
 			member.setId((long)memberMap.get("id"));
 			member.setAccount((String)memberMap.get("account"));
 			member.setName((String)memberMap.get("name"));
+			
+			try{
+				byte[] icon =  (byte[])memberMap.get("icon");
+				String base64 = Base64.getEncoder().encodeToString(icon);
+				member.setIcon(base64);
+			}catch(Exception e){
+				member.setIcon("");
+			}
 			
 			
 			session.setAttribute("member", member);

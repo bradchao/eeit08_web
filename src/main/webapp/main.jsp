@@ -14,6 +14,7 @@
 		<h1>Main Page</h1>	
 		<hr />
 		Welcome, ${member.id }:${member.account }:${member.name }<br>
+		<img alt="" src="data:image/jpeg; base64, ${member.icon }" />
 		<hr />
 		<a href="logout.jsp">Logout</a>	
 	</body>
